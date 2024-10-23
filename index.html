@@ -1,0 +1,173 @@
+<h1>This is the hosts</h1>
+
+<ul>
+    <li>Router-A: Connection from g0/0/1 to Switch-A FastEther0/5 via a straight-through copper cable</li>
+    <li>Router-A: Connection from g0/0/0 to PC-B FastEther 0 via a copper crossover cable</li>
+    <li>Switch-A: Connected from fastether0/6 to PC-A FastEther 0 via a straight-through copper cable</li>
+    <li>Connect Router via Console to PC-A rs 232</li>
+    <li>Connect Switch via Console to PC-B rs 232</li>
+</ul>
+
+<h2>Host A</h2>
+
+<ul>
+    <li>Enable</li>
+    <li>Configure Terminal</li>
+    <li>No IP domain-lookup</li>
+    <li>Hostname: Router-A</li>
+    <li>Banner MOTD: "Warning!! Only authorized users"</li>
+    <li>Line Console 0</li>
+    <li>Password: ConsPassw!</li>
+    <li>Login</li>
+    <li>Exit</li>
+    <li>Interface g0/0/0</li>
+    <li>IP address: 209.165.201.33 255.255.255.224</li>
+    <li>Description: Connect to PC-B</li>
+    <li>Interface g0/0/1</li>
+    <li>IP address: 209.165.201.1 255.255.255.224</li>
+    <li>Description: Connected to S1 Fa0/5</li>
+    <li>Enable secret: NoOneShouldKnow</li>
+    <li>Service password-encryption</li>
+    <li>IP domain-name netsec.com</li>
+    <li>Username: netadmin secret Ciso!2345</li>
+    <li>Crypto key generate RSA 1024</li>
+    <li>Line Vty 0 15</li>
+    <li>Login local</li>
+    <li>Transport input SSH</li>
+</ul>
+
+<h2>Host B</h2>
+
+<ul>
+    <li>Enable</li>
+    <li>Configure Terminal</li>
+    <li>No IP domain-lookup</li>
+    <li>Hostname: SWITCH-A</li>
+    <li>Banner MOTD: "Warning!! Only authorized users only"</li>
+    <li>Line Console 0</li>
+    <li>Password: ConsPassw!</li>
+    <li>Login</li>
+    <li>Interface VLAN1</li>
+    <li>Description: SVI for Management</li>
+    <li>IP address: 209.165.201.2 255.255.255.224</li>
+    <li>No shutdown</li>
+    <li>Enable secret: NoOneShouldKnow</li>
+    <li>Service password-encryption</li>
+    <li>IP domain-name netsec.com</li>
+    <li>Username: netadmin secret Cisco12345</li>
+    <li>Crypto key generation RSA 1024</li>
+    <li>Line vty 0 15</li>
+    <li>Login local</li>
+    <li>Transport input SSH</li>
+    <li>Interface range Fa0/1-4, Fa0/17-24, g0/1-2</li>
+    <li>Description: Unused ports shutdown</li>
+</ul>
+
+<h1>The Second one</h1>
+
+<ul>
+    <b>Town Hall Router</b>
+    <li>Enable</li>
+    <li>Configure terminal</li>
+    <li>Hostname: CS-Department</li>
+    <li>Enable secret: class12345</li>
+    <li>Service password-encryption</li>
+    <li>Banner MOTD: "$This is Router$"</li>
+    <li>Security passwords min-length 10</li>
+    <li>Login block-for 120 attempts 2 within 30</li>
+    <li>No IP domain-lookup</li>
+    <li>IP domain-name ITExamAnswers.net</li>
+    <li>Crypto key generate RSA 1024</li>
+    <li>Line console 0</li>
+    <li>Password: cisco12345</li>
+    <li>Login</li>
+    <li>Logging synchronous</li>
+    <li>Exec-timeout 60</li>
+    <li>Line Vty 0 4</li>
+    <li>Password: cisco12345</li>
+    <li>Transport input SSH</li>
+    <li>Login local</li>
+    <li>Logging synchronous</li>
+    <li>Exec-timeout 60</li>
+    <li>Line aux 0</li>
+    <li>Password: cisco12345</li>
+    <li>Login</li>
+    <li>Logging synchronous</li>
+    <li>Exec-timeout 60</li>
+    <li>IP SSH version 2</li>
+    <li>IP SSH time-out 120</li>
+    <li>Username: netadmin privilege 15 secret Cisco_CCNA7</li>
+    <li>Interface g0/0</li>
+    <li>IP address: 192.168.1.126 255.255.255.224</li>
+    <li>Description: IT Department LAN</li>
+    <li>IPv6 address: 2001:DB8:ACAD:A::1/64</li>
+    <li>IPv6 address: fe80::1 link-local</li>
+    <li>No shutdown</li>
+    <li>Interface g0/1</li>
+    <li>IP address: 192.168.1.158 255.255.255.240</li>
+    <li>Description: Administration LAN</li>
+    <li>IPv6 address: 2001:DB8:ACAD:B::1/64</li>
+    <li>IPv6 address: fe80::1 link-local</li>
+    <li>No shutdown</li>
+    <li>IPv6 unicast-routing</li>
+    <li>Write</li>
+</ul>
+
+<h1>Administration Switch</h1>
+
+<ul>
+    <li>Enable</li>
+    <li>Configure terminal</li>
+    <li>Enable secret: class12345</li>
+    <li>Service password-encryption</li>
+    <li>Banner MOTD: "$Administration Switch$"</li>
+    <li>No IP domain-lookup</li>
+    <li>Line console 0</li>
+    <li>Password: cisco12345</li>
+    <li>Login</li>
+    <li>Logging synchronous</li>
+    <li>Exec-timeout 60</li>
+    <li>Exit</li>
+    <li>Line vty 0 15</li>
+    <li>Password: cisco12345</li>
+    <li>Login</li>
+    <li>Logging synchronous</li>
+    <li>Exec-timeout 60</li>
+    <li>Exit</li>
+    <li>Interface VLAN 1</li>
+    <li>IP address: 192.168.1.157 255.255.255.240</li>
+    <li>No shutdown</li>
+    <li>IP default-gateway: 192.168.1.158</li>
+    <li>Exit</li>
+    <li>Write</li>
+</ul>
+
+<h1>Reception Host</h1>
+
+<ul>
+    <li>IPv4 Address: 192.168.1.97</li>
+    <li>IPv4 Subnet mask: 255.255.255.224</li>
+    <li>IPv4 Default gateway: 192.168.1.126</li>
+    <li>IPv6 Address: 2001:DB8:ACAD:A::FF/64</li>
+    <li>IPv6 Default gateway: FE80::</li>
+</ul>
+
+<h1>Operator Host</h1>
+
+<ul>
+    <li>IPv4 Address: 192.168.1.98</li>
+    <li>IPv4 Subnet mask: 255.255.255.224</li>
+    <li>IPv4 Default gateway: 192.168.1.126</li>
+    <li>IPv6 Address: 2001:DB8:ACAD:A::15/64</li>
+    <li>IPv6 Default gateway: FE80::1</li>
+</ul>
+
+<h1>IT Host</h1>
+
+<ul>
+    <li>IPv4 Address: 192.168.1.145</li>
+    <li>IPv4 Subnet mask: 255.255.255.240</li>
+    <li>IPv4 Default gateway: 192.168.1.158</li>
+    <li>IPv6 Address: 2001:DB8:ACAD:B::FF/64</li>
+    <li>IPv6 Default gateway: FE80::1</li>
+</ul>
